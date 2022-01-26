@@ -1,0 +1,70 @@
+<head>
+    <title>Товар </title>
+</head>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            {% for image_item in product_item.productimage_set.all %}
+            <div class="product-image-item">
+                <img src="{{ image_item.image.url }}" class="img-item-one">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <h1 class="text-center">
+                {{product_item.name}}
+            </h1>
+            <div class="">
+                <p style="font-weight: 700">
+                    Price: {{product_item.price}}
+                </p>
+            </div>
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#description" aria-controls="home" role="tab"
+                                                              data-toggle="tab">
+                        Описание </a></li>
+                    <li role="presentation"><a href="#delivery" aria-controls="profile" role="tab" data-toggle="tab">
+                        Доставка</a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content product-description-tab">
+                    <div role="tabpanel" class="tab-pane active" id="description">
+                        {{product_item.description}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="delivery">
+                        <p> Доствака бесплатная! Доставим в любую точку Беларуси в течении 3-х рабочих дней.</p>
+                    </div>
+                </div>
+                <div>
+                    <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}"> {% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Кол-во:" name="number" id="number">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                                    data-product_id="{{product_item.id}}"
+                                    data-name="{{product_item.name}}"
+                                    data-price="{{product_item.price}}">
+                                Добавить в корзину
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

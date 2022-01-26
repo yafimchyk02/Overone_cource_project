@@ -1,0 +1,151 @@
+<head>
+    <title> Главная </title>
+</head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+
+<div class="section-top">
+    <img src="{% static 'img/bg_blue.jpg' %}" alt="" class="img-responsive">
+</div>
+
+<div class="section section1">
+    <div class="container">
+        <div class="row">
+            <br><br>
+            <div>
+                <h1 class="text-center">
+                    Новые поступления
+                </h1>
+                <br><br>
+            </div>
+            {% for product_image in products_images %}
+            <div class="col-lg-3">
+                <div class="product-item">
+                    <div>
+                        <a href="{% url 'product_item' product_image.product.id %}">
+                            <img src="{{product_image.image.url}}" class="img-item">
+                        </a>
+                    </div>
+                    {% if product_image.product.discount %}
+                    <div class="discount-container">
+                        <span>{{product_image.product.discount}} % OFF</span>
+                    </div>
+                    {% endif %}
+                    <h4>{{ product_image.product.name }}</h4>
+                    <p>
+                        {{product_image.product.description | truncatechars_html:70}}
+                    </p>
+                    <div class="product-price">
+                        {{product_image.product.price}} EUR
+                    </div>
+                    <div class="add-to-card-btn">
+                        <button class="btn btn-success">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="section section-promo">
+    <div>
+        <h2 style="font-weight: 150; padding: 4px;">
+            КАЧЕСТВО - НАДЕЖНОСТЬ - ДОВЕРИЕ</h2>
+        <h3 style="font-weight: lighter; margin-top: -1px">
+            AppleStore.by </h3>
+    </div>
+</div>
+
+
+<div class="section section2 phones-container">
+    <div class="container">
+        <div class="row">
+            <br><br>
+            <div>
+                <h1 class="text-center">
+                    Телефоны
+                </h1>
+                <br><br>
+            </div>
+            {% for product_image in products_images_phone %}
+            <div class="col-lg-3">
+                <div class="product-item">
+                    <div>
+                        <a href="{% url 'product_item' product_image.product.id %}">
+                            <img src="{{product_image.image.url}}" class="img-item">
+                        </a>
+                         {% if product_image.product.discount %}
+                    <div class="discount-container">
+                        <span>{{product_image.product.discount}} % OFF</span>
+                    </div>
+                    {% endif %}
+                    </div>
+                    <h4>{{ product_image.product.name }}</h4>
+                    <p>
+                        {{product_image.product.description | truncatechars_html:70}}
+                    </p>
+                    <div class="product-price">
+                        {{product_image.product.price}} EUR
+                    </div>
+                    <div class="add-to-card-btn">
+                        <button class="btn btn-success">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="section section3 laptops-container">
+    <div class="container">
+        <div class="row">
+            <br><br>
+            <div>
+                <h1 class="text-center">
+                    Ноутбуки
+                </h1>
+                <br><br>
+            </div>
+            {% for product_image in products_images_laptops %}
+            <div class="col-lg-3">
+                <div class="product-item">
+                    <div>
+                        <a href="{% url 'product_item' product_image.product.id %}">
+                            <img src="{{product_image.image.url}}" class="img-item">
+                        </a>
+                         {% if product_image.product.discount %}
+                    <div class="discount-container">
+                        <span>{{product_image.product.discount}} % OFF</span>
+                    </div>
+                    {% endif %}
+                    </div>
+                    <h4>{{ product_image.product.name }}</h4>
+                    <p>
+                        {{product_image.product.description | truncatechars_html:50}}
+                    </p>
+                    <div class="product-price">
+                        {{product_image.product.price}} EUR
+                    </div>
+                    <div class="add-to-card-btn">
+                        <button class="btn btn-success">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

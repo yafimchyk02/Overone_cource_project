@@ -1,0 +1,141 @@
+html, body {
+    height: 100%;
+    max-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(237, 238, 240);
+}
+.navbar-top{
+    min-height: 30px;
+    margin-bottom: -5px;
+    margin-top: -3px;
+    background: #A9A9A9;
+    border: none;
+}
+
+.navbar-main{
+    background:white;
+    border: none;
+    border-radius: 0;
+}
+
+.basket-container{
+    position: relative;
+    width: 400px;
+    padding: 15px 10px;
+
+}
+
+.basket-items{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background: #A9A9A9;
+    z-index: 10;
+    padding: 10px;
+}
+.section-top {
+    margin-bottom: 20px;
+    margin-top: -25px;
+    background-size: cover;
+}
+
+.section{
+    background: #ebedef;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+.product-item {
+    background: white;
+    border: 1px solid #d3d3d3;
+    height: 460px;
+    position: relative;
+    padding: 10px 2px 10px 2px;
+    text-align: center;
+    margin-top: 15px;
+    bottom: 10px;
+
+}
+
+
+.img-item{
+    height: 200px;
+    left: 0;
+    right: 0;
+
+}
+
+.img-item-one{
+    height: 500px;
+}
+
+.discount-container{
+    position: absolute;
+    width: 30%;
+    top: 30%;
+    color: white;
+    font-weight: 700;
+    background: #2ecc71;
+    padding: 2px;
+    margin-left: -2px;
+}
+
+.product-price{
+    position: absolute;
+    font-weight: 700;
+    margin-top: 10px;
+    left: 0;
+    right: 0;
+}
+
+.add-to-card-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+
+}
+.btn-success{
+    background: #198754;
+    border-color: #030921;
+}
+
+
+.section-promo{
+    text-align: center;
+    background: #030921;
+    color: white;
+    height: 95px;
+}
+
+.product-description-tab{
+    padding:10px;
+    font-weight: bold;
+}
+
+.product-image-item{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.wrapper{
+    min-height: 100%;
+}
+
+.wrapper-content{
+    overflow: auto;
+    padding-bottom: 110px; /* must be same height as the footer */
+}
+
+.footer{
+    position: relative;
+    margin-top: -120px; /* negative value of footer height */
+    height:120px;
+    clear: both;
+    background: #0f203a;
+}
+
+.form-error{
+    color: red;
+}

@@ -1,0 +1,50 @@
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-top">
+    <h5 style="text-align: center; font-weight: 700" > AppleStore.by</h5>
+</nav>
+<nav class="navbar navbar-default navbar-main">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="" style="color: #030921;">AppleStore</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active" ><a href="/" style="color: #030921; background-color: white">Главная</a></li>
+                <li><a href="#" style="color: #030921;">О компании</a></li>
+                <li><a href="#" style="color: #030921;">Контакты</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="basket-container">
+                        <a  href="http://127.0.0.1:8000/checkout/" target="_blank" style="color: #030921; margin-left: 300px"> Корзина <span id="basket_total_nmb">
+                            {% if products_total_nmb  %}
+                                ({{products_total_nmb}})
+                            {%else%}
+                                (0)
+                            {%endif%}
+                        </span> </a>
+                        <div class="basket-items hidden">
+                            <ul class="">
+                                {% for product_in_basket in products_in_basket %}
+                                <li>{{product_in_basket.product.name}} , {{product_in_basket.nmb}} шт.
+                                    по {{product_in_basket.price_per_item}} EUR
+                                    <a class="delete-item" href="" data-product_id="{{product_in_basket.id}}"> X </a>
+                                </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
